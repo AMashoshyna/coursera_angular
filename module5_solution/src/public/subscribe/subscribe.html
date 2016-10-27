@@ -1,32 +1,64 @@
 <div class="container">
-<div class="menu-item-tile col-md-8 col-md-offset-2">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-<form class="form-group" name="subscribe" novalidate="">
-<h4>Subscribe to our newsletter:</h4>
-<label for="firstName">First name</label>
-	<input type="text" name="firstName" id="firstName" required min-length="2" placeholder="First name"
-	class="form-control" ng-model="subCtrl.userData.firstName">
-	<span ng-if="subscribe.firstName.$error.required && subscribe.firstName.$touched">First name is required</span><br>
-	<label for="lastName">Last name</label>
-	<input type="text" name="lastName" id="lastName" required required min-length="2"placeholder="Last name"
-	class="form-control" ng-model="subCtrl.userData.lastName">
-	<span ng-if="subscribe.lastName.$error.required && subscribe.lastName.$touched">Last name is required</span><br>
-	<label for="email">Email</label>
-	<input type="email" name="email" id="email" required placeholder="Email"
-	class="form-control" ng-model="subCtrl.userData.email">
-	<span ng-if="subscribe.email.$error.required && subscribe.email.$touched">Email is required</span><br>
-	<label for="phoneNumber">Phone number</label>
-	<input type="" name="phoneNumber" id="phoneNumber" required placeholder=""
-	class="form-control" ng-model="subCtrl.userData.phone">
-	<span ng-if="subscribe.phone.$error.required && subscribe.phone.$touched">Phone number is required</span><br>
-	<label for="dish">Your favourite dish from our menu:</label>
-	<input type="text" name="dish" id="dish" required placeholder="Please specify the menu number" class="form-control" ng-model="subCtrl.userData.favDish.short_name" 
-	placeholder="Your favourite dish" ng-keyup="subCtrl.checkMenuItem(subCtrl.userData.favDish.short_name)"><br>
-	<div>{{subCtrl.checkCatMessage}}</div>
-	<span ng-if="subscribe.favDish.$error.required && subscribe.favDish.$touched">Please specify your fovourite dish</span><br>
-	<button type="submit" class="btn btn-profile" ng-disabled="subscribe.$invalid" ng-click="subCtrl.validateForm(subCtrl.userData.favDish.short_name)">SUBMIT</button>
-</form>
-</div></div>
+	<div class="menu-item-tile col-md-8 col-md-offset-2">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<form class="form-group required" name="subscribe" novalidate>
+					<h4>Subscribe to our newsletter:</h4>
+					<label for="firstName" class="control-label">
+						First name
+					</label>
+					<input type="text" name="firstName" id="firstName" required minlength="2" 
+					placeholder="John" class="form-control" ng-model="subCtrl.userData.firstName">
+					<span ng-if="(subscribe.firstName.$error.required ) && subscribe.firstName.$touched">
+						First name is required
+					</span>
+					<span ng-if="(subscribe.firstName.$error.minlength) && subscribe.firstName.$touched">
+						First name should be at least 2 characters long
+					</span>
+					<br>
+					<label for="lastName" class="control-label">
+						Last name
+					</label>
+					<input type="text" name="lastName" id="lastName" required minlength="2" placeholder="Doe"
+					class="form-control" ng-model="subCtrl.userData.lastName">
+					<span ng-if="(subscribe.lastName.$error.required) && subscribe.lastName.$touched">
+						Last name is required
+					</span>
+					<span ng-if="(subscribe.lastName.$error.minlength) && subscribe.lastName.$touched">
+						First name should be at least 2 characters long
+					</span>
+					<br>
+				<label for="email" class="control-label">
+					Email
+				</label>
+				<input type="email" name="email" id="email" required placeholder="john@mail.com"
+				class="form-control" ng-model="subCtrl.userData.email">
+				<span ng-if="(subscribe.email.$invalid) && subscribe.email.$touched">
+					Must be a valid email address: address@domain format
+				</span>
+				<br>
+				<label for="phoneNumber" class="control-label">
+					Phone number
+				</label>
+				<input type="" name="phoneNumber" id="phoneNumber" required pattern="(\d{3})-(\d{3})-(\d{4})" placeholder="555-555-5555"
+				class="form-control" ng-model="subCtrl.userData.phone">
+				<span ng-if="subscribe.phoneNumber.$invalid && subscribe.phoneNumber.$touched">
+					Phone number must be in the format ###-###-####
+				</span>
+				<br>
+				<label for="dish" class="control-label">
+					Your favourite dish from our menu:
+				</label>
+				<input type="text" name="dish" id="dish" required placeholder="Menu number" class="form-control" ng-model="subCtrl.userData.favDish.short_name" 
+				placeholder="Your favourite dish"><br>
+				<div>{{subCtrl.checkCatMessage}}</div>
+				<span ng-if="subscribe.favDish.$error.required && subscribe.favDish.$touched">
+					Please specify your fovourite dish
+				</span>
+				<br>
+				<button type="submit" class="btn btn-profile" ng-disabled="subscribe.$invalid" ng-click="subCtrl.validateForm(subCtrl.userData.favDish.short_name)">SUBMIT</button>
+			</form>
+		</div>
+	</div>
 </div>
 </div>

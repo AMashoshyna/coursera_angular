@@ -211,3 +211,15 @@ a[ui-sref="admin.auth"] {
   background-color: #f6b319;
   color: #000;
 }
+.form-group.required .control-label:after { 
+   content:"*";
+   color:red;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}

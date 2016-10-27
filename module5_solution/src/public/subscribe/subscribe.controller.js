@@ -8,10 +8,10 @@ SubscriptionController.$inject = ['MenuService','$state'];
 function SubscriptionController(MenuService,$state) {
   var $ctrl = this;
   $ctrl.userData = {
-  	firstName: 'Anna',
-  	lastName: 'Johnes',
-  	email: 'anna@mail.com',
-  	phone: '555 555 555',
+  	firstName: '',
+  	lastName: '',
+  	email: '',
+  	phone: '',
   	favDish: ''
   };
   $ctrl.checkCatMessage;
@@ -31,7 +31,7 @@ function SubscriptionController(MenuService,$state) {
 
   $ctrl.checkMenuItem = function(shortName) {
   	return MenuService.checkCategory(shortName)
-  	.catch((response)=>{$ctrl.checkCatMessage = "No such menu number exists"})
+  	// .catch((response)=>{$ctrl.checkCatMessage = "No such menu number exists"})
   }
 }
 
