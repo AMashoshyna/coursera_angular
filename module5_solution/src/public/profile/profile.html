@@ -1,0 +1,43 @@
+<div class="container" ng-if="profileCtrl.showProfile">        
+	<div class="row">
+		<div class="col-md-8 col-lg-8  col-md-offset-2 col-lg-offset-2 "> 
+			<h4 class="panel-title text-center">GUEST PROFILE</h3>	
+				<h3 class="panel-title text-center">{{profileCtrl.user.firstName.toUpperCase()}} {{profileCtrl.user.lastName.toUpperCase()}}</h3>
+				<div class="panel-body">
+
+					<table class="table table-user-information">
+						<tbody>
+							<tr>
+								<tr>
+									<td>Phone number</td>
+									<td>{{profileCtrl.user.phone}}</td>
+								</tr>
+								<tr>
+									<td>Email</td>
+									<td><a>{{profileCtrl.user.email}}</a></td>
+								</tr>
+								<tr>
+									<td>Favorite dish</td>
+									<td>{{profileCtrl.user.favDish.name}}<br>
+										<em>{{profileCtrl.user.favDish.description}}</em>
+									</td>
+								</tr>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+
+				<div class="col-md-12 col-lg-12 " align="center"> <img alt="{{profileCtrl.user.favDish.name}}" ng-src="//mashoshyna.herokuapp.com/images/{{profileCtrl.user.favDish.short_name}}.jpg" class="img-responsive"> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-lg-8  col-md-offset-2 col-lg-offset-2 "> 
+			<div class="text-center" ng-if="profileCtrl.notSignedUp">Not Signed Up Yet. <a href="#" ui-sref="public.subscibe">Sign up Now!</a></div>
+			</div>
+		</div>
+	</div>
