@@ -34,7 +34,7 @@ function MenuService($http, ApiPath) {
   }
 
   service.checkCategory = function(shortName) {
-    return $http.get('http://mashoshyna.herokuapp.com/menu_items/' + shortName.toUpperCase() + '.json')
+    return $http.get('//mashoshyna.herokuapp.com/menu_items/' + shortName.toUpperCase() + '.json')
   }
 
 }
